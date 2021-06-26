@@ -16,54 +16,62 @@ namespace NewOrder.Custody
 
         public static Result<Custody> Create(int accountNumber)
         {
-            if (accountNumber == 0)
+            if (accountNumber <= 0)
                 return Result.Failure<Custody>("A positive account number must be provided.");
 
             return Result.Success(new Custody(accountNumber));
         }
 
-        public Result Add(CustodyEntry entry)
+        public int GetQuantity(string symbol)
         {
-            var validateResult = ValidateEntry(entry);
+            if (!Entries.ContainsKey(symbol))
+                return 0;
+
+            return Entries[symbol];
+        }
+
+        public Result Add(string symbol, int quantity)
+        {
+            var validateResult = Validate(symbol, quantity);
             if (validateResult.IsFailure)
                 return validateResult;
 
-            if (!Entries.ContainsKey(entry.Symbol))
+            if (!Entries.ContainsKey(symbol))
             {
-                Entries.TryAdd(entry.Symbol, entry.Quantity);
+                Entries.TryAdd(symbol, quantity);
                 return Result.Success();
             }
 
-            Entries[entry.Symbol] += entry.Quantity;
+            Entries[symbol] += quantity;
             return Result.Success();
         }
 
-        public Result Remove(CustodyEntry entry)
+        public Result Remove(string symbol, int quantity)
         {
-            var validateResult = ValidateEntry(entry);
+            var validateResult = Validate(symbol, quantity);
             if (validateResult.IsFailure)
                 return validateResult;
 
-            if (!Entries.ContainsKey(entry.Symbol))
-                return Result.Failure($"Symbol {entry.Symbol} not found.");
+            if (!Entries.ContainsKey(symbol))
+                return Result.Failure($"Symbol {symbol} not found.");
 
-            if (Entries[entry.Symbol] < entry.Quantity)
-                return Result.Failure($"There is only {Entries[entry.Symbol]} available stocks to sell");
+            if (Entries[symbol] < quantity)
+                return Result.Failure($"There is {Entries[symbol]} available stocks to sell only.");
 
-            Entries[entry.Symbol] -= entry.Quantity;
+            Entries[symbol] -= quantity;
 
-            if (Entries[entry.Symbol] == 0)
-                Entries.Remove(entry.Symbol);
+            if (Entries[symbol] == 0)
+                Entries.Remove(symbol);
 
             return Result.Success();
         }
 
-        private Result ValidateEntry(CustodyEntry entry)
+        private Result Validate(string symbol, int quantity)
         {
-            if (string.IsNullOrWhiteSpace(entry.Symbol))
+            if (string.IsNullOrWhiteSpace(symbol))
                 return Result.Failure("A symbol must be provided");
 
-            if (entry.Quantity <= 0)
+            if (quantity <= 0)
                 return Result.Failure("A positive quantity must be provided");
 
             return Result.Success();

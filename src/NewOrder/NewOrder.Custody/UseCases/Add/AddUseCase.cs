@@ -4,21 +4,22 @@ namespace NewOrder.Custody
 {
     public class AddUseCase : IAddUseCase
     {
-        private readonly ICustodyDatabase _custodyDatabase;
+        private readonly ICustodyDatabase _database;
 
         public AddUseCase(ICustodyDatabase database) =>
-            _custodyDatabase = database;
+            _database = database;
 
-        public Result Add(int accountNumber, CustodyEntry custodyEntry)
+        public Result Add(int accountNumber, string symbol, int quantity)
         {
-            var custody = _custodyDatabase.Get(accountNumber);
+            var custody = _database.Get(accountNumber);
             if (custody is null)
-                return Result.Failure($"Custody not found for account number {accountNumber}.");
+                return Result.Failure($"Custody with account number {accountNumber} not found.");
 
-            var addResult = custody.Add(custodyEntry);
-            if (addResult.IsSuccess)
-                _custodyDatabase.Save(custody);
+            var addResult = custody.Add(symbol, quantity);
+            if (addResult.IsFailure)
+                return addResult;
 
+            _database.Save(custody);
             return addResult;
         }
     }

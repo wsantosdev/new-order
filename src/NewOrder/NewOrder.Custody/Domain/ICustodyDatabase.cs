@@ -2,7 +2,7 @@
 {
     public interface ICustodyDatabase
     {
-        public Custody Get(int accountNumber);
+        public Custody Get(long accountNumber);
         public void Save(Custody custody);
     }
 }
