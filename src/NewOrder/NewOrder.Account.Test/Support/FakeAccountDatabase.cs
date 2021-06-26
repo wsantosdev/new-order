@@ -4,7 +4,7 @@ namespace NewOrder.Account.Test
 {
     public class FakeAccountDatabase : IAccountDatabase
     {
-        private readonly ConcurrentDictionary<long, Account> _storage = new ConcurrentDictionary<long, Account>();
+        private readonly ConcurrentDictionary<long, Account> _storage = new();
         
         public Account Get(long accountNumber)
         {

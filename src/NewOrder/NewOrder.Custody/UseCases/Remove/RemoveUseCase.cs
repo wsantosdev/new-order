@@ -9,16 +9,17 @@ namespace NewOrder.Custody
         public RemoveUseCase(ICustodyDatabase database) =>
             _database = database;
 
-        public Result Remove(int accountNumber, CustodyEntry custodyEntry)
+        public Result Remove(int accountNumber, string symbol, int quantity)
         {
             var custody = _database.Get(accountNumber);
             if (custody is null)
-                return Result.Failure($"Custody not found to the account number {accountNumber}.");
+                return Result.Failure($"Custody with account number {accountNumber} not found.");
 
-            var removeResult = custody.Remove(custodyEntry);
-            if (removeResult.IsSuccess)
-                _database.Save(custody);
+            var removeResult = custody.Remove(symbol, quantity);
+            if (removeResult.IsFailure)
+                return removeResult;
 
+            _database.Save(custody);
             return removeResult;
         }
     }

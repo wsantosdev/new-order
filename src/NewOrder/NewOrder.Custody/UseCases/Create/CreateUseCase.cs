@@ -13,13 +13,13 @@ namespace NewOrder.Custody
         {
             var custody = _database.Get(accountNumber);
             if (custody != null)
-                return Result.Failure($"Custody not found to the account number {accountNumber}.");
+                return Result.Failure($"Custody with account number {accountNumber} already exists.");
 
             var createResult = Custody.Create(accountNumber);
             if (createResult.IsFailure)
                 return createResult;
 
-            _database.Save(custody);
+            _database.Save(createResult.Value);
             return createResult;
         }
     }
