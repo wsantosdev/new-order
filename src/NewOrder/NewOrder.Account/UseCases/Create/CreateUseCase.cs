@@ -9,7 +9,7 @@ namespace NewOrder.Account
         public CreateUseCase(IAccountDatabase database) =>
             _database = database;
 
-        public Result Create(long accountNumber, decimal initialDeposit)
+        public Result Create(long accountNumber, decimal initialDeposit = 0)
         {
             var account = _database.Get(accountNumber);
             if (account != null)

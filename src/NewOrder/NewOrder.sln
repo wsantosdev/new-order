@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Order.WebApi", "Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewOrder.Account.WebApi", "NewOrder.Account.WebApi\NewOrder.Account.WebApi.csproj", "{B75F3ECC-0494-4857-8696-BDF655E55C7C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Account.Test", "NewOrder.Account.Test\NewOrder.Account.Test.csproj", "{8C04C572-1B00-4EBA-8298-D735E0C6011A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B75F3ECC-0494-4857-8696-BDF655E55C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B75F3ECC-0494-4857-8696-BDF655E55C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B75F3ECC-0494-4857-8696-BDF655E55C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C04C572-1B00-4EBA-8298-D735E0C6011A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C04C572-1B00-4EBA-8298-D735E0C6011A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C04C572-1B00-4EBA-8298-D735E0C6011A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C04C572-1B00-4EBA-8298-D735E0C6011A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{4988B94C-72D3-4F70-B119-AC3B4893615D} = {C7B967B9-8DAA-485D-BC25-177353F9BC3E}
 		{A09D8BAE-D426-44B3-9F24-39721CB126A9} = {C7B967B9-8DAA-485D-BC25-177353F9BC3E}
 		{B75F3ECC-0494-4857-8696-BDF655E55C7C} = {058BB3E8-F4E3-4418-93E8-920822270965}
+		{8C04C572-1B00-4EBA-8298-D735E0C6011A} = {058BB3E8-F4E3-4418-93E8-920822270965}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {597D6E68-9DE8-4FF7-9D76-09D8DD5CB18E}

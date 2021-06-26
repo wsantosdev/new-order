@@ -14,15 +14,18 @@ namespace NewOrder.Account
 
         public static Result<Account> Create(long accountNumber, decimal initialDeposit = 0)
         {
-            if (accountNumber == 0)
+            if (accountNumber <= 0)
                 return Result.Failure<Account>("A positive account number must be provided.");
+
+            if (initialDeposit < 0)
+                return Result.Failure<Account>("A positive initial deposit must be provided");
 
             return Result.Success(new Account(accountNumber, initialDeposit));
         }
 
         public Result Debit(decimal amount)
         {
-            if (amount == 0)
+            if (amount <= 0)
                 return Result.Failure("A positive amount must be provided.");
 
             if (amount > Balance)
@@ -34,7 +37,7 @@ namespace NewOrder.Account
 
         public Result Credit(decimal amount)
         {
-            if(amount == 0)
+            if(amount <= 0)
                 return Result.Failure("A positive amount must be provided.");
 
             Balance += amount;
