@@ -17,6 +17,6 @@ namespace NewOrder.Order.WebApi
         }
 
         private LiteDatabase CreateDatabase() =>
-            new LiteDatabase(_connectionString);
+            new (_connectionString);
     }
 }
