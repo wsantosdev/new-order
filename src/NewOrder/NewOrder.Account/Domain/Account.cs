@@ -7,6 +7,8 @@ namespace NewOrder.Account
         public long Number { get; }
         public decimal Balance { get; private set; }
 
+        protected Account() { }
+
         private Account(long number, decimal initialDeposit = 0) =>
             (Number, Balance) = (number, initialDeposit);
 

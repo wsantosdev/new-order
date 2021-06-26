@@ -15,10 +15,12 @@ namespace NewOrder.Account
             if (account != null)
                 return Result.Failure($"The is already an account with number {accountNumber}.");
 
-            account = Account.Create(accountNumber, initialDeposit);
-            _database.Save(account);
+            var createResult = Account.Create(accountNumber, initialDeposit);
+            if (createResult.IsFailure)
+                return createResult;
 
-            return Result.Success();
+            _database.Save(createResult.Value);
+            return createResult;
         }
     }
 }

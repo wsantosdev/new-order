@@ -15,10 +15,12 @@ namespace NewOrder.Custody
             if (custody != null)
                 return Result.Failure($"Custody not found to the account number {accountNumber}.");
 
-            custody = Custody.Create(accountNumber);
-            _database.Save(custody);
+            var createResult = Custody.Create(accountNumber);
+            if (createResult.IsFailure)
+                return createResult;
 
-            return Result.Success();
+            _database.Save(custody);
+            return createResult;
         }
     }
 }

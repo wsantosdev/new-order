@@ -14,7 +14,7 @@ namespace NewOrder.Order
 
         protected Order() { }
 
-        private Order(int accountNumber, Guid orderId, bool isBuy, string symbol, int quantity, decimal price) =>
+        private Order(long accountNumber, Guid orderId, bool isBuy, string symbol, int quantity, decimal price) =>
             (AccountNumber, OrderId, IsBuy, Symbol, Quantity, Price) =
             (accountNumber, orderId, isBuy, symbol, quantity, price);
 
