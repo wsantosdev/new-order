@@ -4,8 +4,8 @@ namespace NewOrder.Account
 {
     public class Account
     {
-        public long Number { get; }
-        public decimal Balance { get; private set; }
+        public long Number { get; protected set; }
+        public decimal Balance { get; protected set; }
 
         protected Account() { }
 

@@ -6,8 +6,13 @@ namespace NewOrder.Account.WebApi
     {
         private readonly string _connectionString;
 
-        public AccountDatabase(string connectionString) =>
+        public AccountDatabase(string connectionString)
+        {
             _connectionString = connectionString;
+            BsonMapper.Global
+                      .Entity<Account>()
+                      .Id(a => a.Number);
+        }
         
         public Account Get(long accountNumber)
         {
