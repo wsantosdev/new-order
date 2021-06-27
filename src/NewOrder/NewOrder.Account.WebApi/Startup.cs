@@ -23,6 +23,7 @@ namespace NewOrder.Account.WebApi
                     .AddSingleton<ICreateUseCase, CreateUseCase>()
                     .AddSingleton<IDebitUseCase, DebitUseCase>()
                     .AddSingleton<ICreditUseCase, CreditUseCase>()
+                    .AddSingleton<IQueryUseCase, QueryUseCase>()
                     .AddHostedService<CreateHostedService>();
 
             services.AddControllers();
