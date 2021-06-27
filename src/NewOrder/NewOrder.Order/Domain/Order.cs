@@ -5,8 +5,8 @@ namespace NewOrder.Order
 {
     public class Order
     {
-        public long AccountNumber { get; protected set; }
         public Guid OrderId { get; protected set; }
+        public long AccountNumber { get; protected set; }
         public bool IsBuy { get; protected set; }
         public string Symbol { get; protected set; }
         public int Quantity { get; protected set; }

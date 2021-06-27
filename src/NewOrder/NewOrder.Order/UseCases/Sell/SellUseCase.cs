@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace NewOrder.Order.UseCases.Sell
+namespace NewOrder.Order
 {
     public class SellUseCase : ISellUseCase
     {

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace NewOrder.Order.WebApi
 {
@@ -19,9 +20,14 @@ namespace NewOrder.Order.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IOrderDatabase, OrderDatabase>()
-                    .AddSingleton<IAccountService, AccountServiceClient>()
-                    .AddSingleton<ICustodyService, CustodyServiceClient>();
+            services.AddHttpClient<IAccountService, AccountServiceClient>(configureClient => 
+                configureClient.BaseAddress = new Uri(Configuration.GetValue<string>("RemoteServices:AccountService")));
+            services.AddHttpClient<ICustodyService, CustodyServiceClient>(configureClient =>
+                configureClient.BaseAddress = new Uri(Configuration.GetValue<string>("RemoteServices:CustodyService")));
+            
+            services.AddSingleton<IOrderDatabase>(provider => new OrderDatabase(Configuration.GetConnectionString("Order")))
+                    .AddSingleton<IBuyUseCase, BuyUseCase>()
+                    .AddSingleton<ISellUseCase, SellUseCase>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
