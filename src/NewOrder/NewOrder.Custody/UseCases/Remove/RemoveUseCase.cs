@@ -9,7 +9,7 @@ namespace NewOrder.Custody
         public RemoveUseCase(ICustodyDatabase database) =>
             _database = database;
 
-        public Result Remove(int accountNumber, string symbol, int quantity)
+        public Result Remove(long accountNumber, string symbol, int quantity)
         {
             var custody = _database.Get(accountNumber);
             if (custody is null)

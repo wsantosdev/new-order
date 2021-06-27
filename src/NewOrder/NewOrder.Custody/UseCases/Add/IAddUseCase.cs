@@ -4,6 +4,6 @@ namespace NewOrder.Custody
 {
     public interface IAddUseCase
     {
-        Result Add(int accountNumber, string symbol, int quantity);
+        Result Add(long accountNumber, string symbol, int quantity);
     }
 }

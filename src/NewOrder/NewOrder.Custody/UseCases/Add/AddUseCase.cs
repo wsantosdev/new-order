@@ -9,7 +9,7 @@ namespace NewOrder.Custody
         public AddUseCase(ICustodyDatabase database) =>
             _database = database;
 
-        public Result Add(int accountNumber, string symbol, int quantity)
+        public Result Add(long accountNumber, string symbol, int quantity)
         {
             var custody = _database.Get(accountNumber);
             if (custody is null)

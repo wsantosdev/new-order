@@ -4,6 +4,6 @@ namespace NewOrder.Custody
 {
     public interface IRemoveUseCase
     {
-        Result Remove(int accountNumber, string symbol, int quantity);
+        Result Remove(long accountNumber, string symbol, int quantity);
     }
 }

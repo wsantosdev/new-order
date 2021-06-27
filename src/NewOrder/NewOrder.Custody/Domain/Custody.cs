@@ -5,7 +5,7 @@ namespace NewOrder.Custody
 {
     public class Custody
     {
-        protected Dictionary<string, int> Entries { private get; set; } = new Dictionary<string, int>();
+        public Dictionary<string, int> Entries { get; protected set; } = new Dictionary<string, int>();
 
         public int AccountNumber { get; protected set; }
 
