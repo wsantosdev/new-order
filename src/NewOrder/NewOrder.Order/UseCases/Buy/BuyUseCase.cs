@@ -18,7 +18,7 @@ namespace NewOrder.Order
 
         public async ValueTask<Result> Buy(long accountNumber, string symbol, int quantity, decimal price)
         {
-            var createResult = Order.Create(accountNumber, Guid.NewGuid(), true, symbol, quantity, price);
+            var createResult = Order.Create(Guid.NewGuid(), accountNumber, true, symbol, quantity, price);
             if (createResult.IsFailure)
                 return createResult;
 
