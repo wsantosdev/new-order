@@ -3,29 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Account", "NewOrder.Account\NewOrder.Account.csproj", "{401A0BF3-05A9-4405-8FED-84FA91218E4B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Custody", "NewOrder.Custody\NewOrder.Custody.csproj", "{E6862BCB-B999-4088-9110-D5A80D066988}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Order", "NewOrder.Order\NewOrder.Order.csproj", "{4988B94C-72D3-4F70-B119-AC3B4893615D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Account", "Account", "{058BB3E8-F4E3-4418-93E8-920822270965}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Account", "Account\NewOrder.Account\NewOrder.Account.csproj", "{401A0BF3-05A9-4405-8FED-84FA91218E4B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Account.Test", "Account\NewOrder.Account.Test\NewOrder.Account.Test.csproj", "{8C04C572-1B00-4EBA-8298-D735E0C6011A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Account.WebApi", "Account\NewOrder.Account.WebApi\NewOrder.Account.WebApi.csproj", "{B75F3ECC-0494-4857-8696-BDF655E55C7C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Custody", "Custody", "{7219AFDA-89ED-4680-8E96-41C37224ADA4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Custody", "Custody\NewOrder.Custody\NewOrder.Custody.csproj", "{E6862BCB-B999-4088-9110-D5A80D066988}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Custody.Test", "Custody\NewOrder.Custody.Test\NewOrder.Custody.Test.csproj", "{1AC0A533-1296-4B31-9A1B-B9ABB4C5F581}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Custody.WebApi", "Custody\NewOrder.Custody.WebApi\NewOrder.Custody.WebApi.csproj", "{EA5058E4-3183-47ED-8A70-364CED90CBFA}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order", "Order", "{C7B967B9-8DAA-485D-BC25-177353F9BC3E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Order.WebApi", "NewOrder.Order.WebApi\NewOrder.Order.WebApi.csproj", "{A09D8BAE-D426-44B3-9F24-39721CB126A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Order", "Order\NewOrder.Order\NewOrder.Order.csproj", "{4988B94C-72D3-4F70-B119-AC3B4893615D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Account.WebApi", "NewOrder.Account.WebApi\NewOrder.Account.WebApi.csproj", "{B75F3ECC-0494-4857-8696-BDF655E55C7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewOrder.Order.Test", "Order\NewOrder.Order.Test\NewOrder.Order.Test.csproj", "{1C7E5A05-F810-4B45-AB1F-B2F86447E1D0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Account.Test", "NewOrder.Account.Test\NewOrder.Account.Test.csproj", "{8C04C572-1B00-4EBA-8298-D735E0C6011A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Custody.Test", "NewOrder.Custody.Test\NewOrder.Custody.Test.csproj", "{1AC0A533-1296-4B31-9A1B-B9ABB4C5F581}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Custody.WebApi", "NewOrder.Custody.WebApi\NewOrder.Custody.WebApi.csproj", "{EA5058E4-3183-47ED-8A70-364CED90CBFA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewOrder.Order.Test", "NewOrder.Order.Test\NewOrder.Order.Test.csproj", "{1C7E5A05-F810-4B45-AB1F-B2F86447E1D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewOrder.Order.WebApi", "Order\NewOrder.Order.WebApi\NewOrder.Order.WebApi.csproj", "{A09D8BAE-D426-44B3-9F24-39721CB126A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
