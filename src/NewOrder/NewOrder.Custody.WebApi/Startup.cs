@@ -23,6 +23,7 @@ namespace NewOrder.Custody.WebApi
                     .AddSingleton<ICreateUseCase, CreateUseCase>()
                     .AddSingleton<IAddUseCase, AddUseCase>()
                     .AddSingleton<IRemoveUseCase, RemoveUseCase>()
+                    .AddSingleton<IQueryUseCase, QueryUseCase>()
                     .AddHostedService<CreateHostedService>();
 
             services.AddControllers();
