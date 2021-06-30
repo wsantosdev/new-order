@@ -28,7 +28,8 @@ namespace NewOrder.Order.WebApi
         {
             var requestBody = JsonSerializer.Serialize(new { AccountNumber = accountNumber, Amount = amount });
             var content = new StringContent(requestBody, Encoding.UTF8, MediaTypeNames.Application.Json);
-            var response = await _httpClient.PostAsync("api/Debit", content);
+            var response = await _httpClient.PostAsync("api/Debit", content)
+                                            .ConfigureAwait(false);
             return response.IsSuccessStatusCode
                     ? Result.Success()
                     : Result.Failure(await response.Content.ReadAsStringAsync());

@@ -28,7 +28,8 @@ namespace NewOrder.Order.WebApi
         {
             var requestBody = JsonSerializer.Serialize(new { AccountNumber = accountNumber, Symbol = symbol, Quantity = quantity });
             var content = new StringContent(requestBody, Encoding.UTF8, MediaTypeNames.Application.Json);
-            var response = await _httpClient.PostAsync("api/Remove", content);
+            var response = await _httpClient.PostAsync("api/Remove", content)
+                                            .ConfigureAwait(false);
             return response.IsSuccessStatusCode
                     ? Result.Success()
                     : Result.Failure(await response.Content.ReadAsStringAsync());
